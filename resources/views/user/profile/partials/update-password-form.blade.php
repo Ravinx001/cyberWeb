@@ -1,11 +1,11 @@
             {{-- Update Password --}}
             <div class="row">
-                <div class="col-12 col-md-8">
+                <div class="col-12">
 
                     <div class="card mb-4">
                         <div class="card-header">
                             <h5 class="text-start font-weight-light my-2">Update Password</h5>
-                            <span class="text-primary">Ensure your account is using a long, random password to stay
+                            <span style="color: rgb(0,156,234);">Ensure your account is using a long, random password to stay
                                 secure.</span>
                         </div>
 
@@ -49,7 +49,7 @@
                                 </div>
 
                                 <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                    <button class="btn btn-primary" type="submit">Save</button>
+                                    <button style="background-color: rgb(0,156,234);" class="btn text-white" type="submit">Save</button>
                                 </div>
 
                             </form>

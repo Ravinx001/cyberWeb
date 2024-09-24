@@ -12,14 +12,14 @@ Route::middleware('guest')->group(function () {
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 
-// Worker Routes
+// User Routes
 Route::middleware(['auth', 'verified', 'user'])->group(function () {
-    Route::get('/user/dashboard', function () {
-        return view('user.dashboard');
-    })->name('user.dashboard');
+    // Route::get('/user/dashboard', function () {
+    //     return view('user.dashboard');
+    // })->name('user.dashboard');
 
     Route::get('/user/profile', [ProfileController::class, 'edit'])->name('user.profile.edit');
     Route::patch('/user/profile', [ProfileController::class, 'update'])->name('user.profile.update');

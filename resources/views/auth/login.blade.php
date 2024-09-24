@@ -7,7 +7,7 @@
                     <div class="card shadow-lg border-0 rounded-lg mt-5">
 
                         <div class="card-header">
-                            <h3 class="text-center font-weight-light my-4">Login</h3>
+                            <h3 style="color: rgb(0,156,234);" class="text-center font-weight-light my-4">Login</h3>
 
                             <!-- Session Status -->
                             <x-form.auth-session-status class="mb-4" :status="session('status')" />
@@ -34,10 +34,19 @@
 
                                 <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                     @if (Route::has('password.request'))
-                                        <a class="small" href="{{ route('password.request') }}">Forgot
-                                            Password?</a>
+                                        <a class="small" href="{{ route('password.request') }}"><span
+                                                class="fs-6">Forgot
+                                                Password?</span></a>
                                     @endif
-                                    <button class="btn btn-primary" type="submit">Login</button>
+                                    <button style="background-color: rgb(0,156,234); color: white;"
+                                        class="btn fw-bold fs-6" type="submit">Login</button>
+                                </div>
+
+                                <div class="text-center mt-5">
+                                    <p>Don't have an account ?
+                                        <a class="small" href="{{ route('register.create') }}"><span
+                                                class="fs-6">Sign Up</span></a>
+                                    </p>
                                 </div>
 
                             </form>

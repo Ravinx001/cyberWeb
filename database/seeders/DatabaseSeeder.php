@@ -17,33 +17,18 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         $user = User::factory()->create([
-            'name' => 'Worker',
+            'name' => 'User',
             'email' => 'rav.normal@gmail.com',
             'role' => '1',
             'email_verified_at' => null,
             'password' => Hash::make('12345678'),
         ]);
 
-        $supervisor = User::factory()->create([
-            'name' => 'Supervisor',
-            'email' => 'rav.business.lak@gmail.com',
-            'role' => '2',
-            'email_verified_at' => null,
-            'password' => Hash::make('12345678'),
-        ]);
-
-        $manager = User::factory()->create([
-            'name' => 'Manager',
-            'email' => 'rav.ban.col.lak@gmail.com',
-            'role' => '3',
-            'email_verified_at' => null,
-            'password' => Hash::make('12345678'),
-        ]);
 
         $admin = User::factory()->create([
             'name' => 'Admin',
             'email' => 'rav.sharing@gmail.com',
-            'role' => '4',
+            'role' => '2',
             'email_verified_at' => null,
             'password' => Hash::make('12345678'),
         ]);

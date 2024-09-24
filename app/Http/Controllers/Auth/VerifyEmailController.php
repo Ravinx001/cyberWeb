@@ -17,24 +17,15 @@ class VerifyEmailController extends Controller
         $userRole = $request->user()->role;
         $customRoute = '';
 
-        // Worker
+        // User
         if ($userRole == 1) {
-            $customRoute = 'worker.dashboard';
+            $customRoute = 'user.dashboard';
         }
 
-        // Supervisor
-        else if ($userRole == 2) {
-            $customRoute = 'supervisor.dashboard';
-        }
-
-        // Manager
-        else if ($userRole == 3) {
-            $customRoute = 'manager.dashboard';
-        }
 
         // Admin
-        else if ($userRole == 4) {
-            $customRoute = 'worker.dashboard';
+        else if ($userRole == 2) {
+            $customRoute = 'admin.dashboard';
         }
 
         // No Login

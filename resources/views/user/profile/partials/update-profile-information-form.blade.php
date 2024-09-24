@@ -15,7 +15,7 @@
 
                         <div class="card-body">
 
-                            <form method="post" action="{{ route('manager.profile.update') }}">
+                            <form method="post" action="{{ route('user.profile.update') }}">
                                 @csrf
                                 @method('patch')
 

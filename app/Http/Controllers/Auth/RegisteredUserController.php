@@ -32,14 +32,13 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
-            'role' => ['required', 'numeric', 'gte:1', 'lte:4'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'role' => $request->role,
+            'role' => 1,
             'password' => Hash::make($request->password),
         ]);
 
@@ -47,28 +46,6 @@ class RegisteredUserController extends Controller
 
         // Auth::login($user);
 
-        $userRole = $user->role;
-
-        // Worker
-        if ($userRole == 1) {
-            return back()->with('status', 'New Worker Account Successfully Created !');
-        }
-
-        // Supervisor
-        else if ($userRole == 2) {
-            return back()->with('status', 'New Supervisor Account Successfully Created !');
-        }
-
-        // Manager
-        else if ($userRole == 3) {
-            return back()->with('status', 'New Manager Account Successfully Created !');
-        }
-
-        // Admin
-        else if ($userRole == 4) {
-            return back()->with('status', 'New Admin Account Successfully Created !');
-        }
-
-        return back()->with('status', 'New Account Successfully Created !');
+        return redirect()->intended(route('login', absolute: false));
     }
 }

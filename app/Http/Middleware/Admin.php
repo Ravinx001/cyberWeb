@@ -23,23 +23,13 @@ class Admin
 
         $userRole = Auth::user()->role;
 
-        // Worker
+        // User
         if ($userRole == 1) {
-            return redirect()->route('worker.dashboard');
-        }
-
-        // Supervisor
-        else if ($userRole == 2) {
-            return redirect()->route('supervisor.dashboard');
-        }
-
-        // Manager
-        else if ($userRole == 3) {
-            return redirect()->route('manager.dashboard');
+            return redirect()->route('user.dashboard');
         }
 
         // Admin
-        else if ($userRole == 4) {
+        else if ($userRole == 2) {
             return $next($request);
         }
 

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class Worker
+class User
 {
     /**
      * Handle an incoming request.
@@ -28,18 +28,8 @@ class Worker
             return $next($request);
         }
 
-        // Supervisor
-        else if ($userRole == 2) {
-            return redirect()->route('supervisor.dashboard');
-        }
-
-        // Manager
-        else if ($userRole == 3) {
-            return redirect()->route('manager.dashboard');
-        }
-
         // Admin
-        else if ($userRole == 4) {
+        else if ($userRole == 2) {
             return redirect()->route('admin.dashboard');
         }
 

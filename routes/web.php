@@ -4,41 +4,27 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
+Route::middleware('guest')->group(function () {
+    Route::get('/register', [RegisteredUserController::class, 'create'])
+        ->name('register.create');
+    Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
 
+
 // Worker Routes
-Route::middleware(['auth', 'verified', 'worker'])->group(function () {
-    Route::get('/worker/dashboard', function () {
-        return view('worker.dashboard');
-    })->name('worker.dashboard');
+Route::middleware(['auth', 'verified', 'user'])->group(function () {
+    Route::get('/user/dashboard', function () {
+        return view('user.dashboard');
+    })->name('user.dashboard');
 
-    Route::get('/worker/profile', [ProfileController::class, 'edit'])->name('worker.profile.edit');
-    Route::patch('/worker/profile', [ProfileController::class, 'update'])->name('worker.profile.update');
+    Route::get('/user/profile', [ProfileController::class, 'edit'])->name('user.profile.edit');
+    Route::patch('/user/profile', [ProfileController::class, 'update'])->name('user.profile.update');
 });
 
-
-// Supervisor Routes
-Route::middleware(['auth', 'verified', 'supervisor'])->group(function () {
-    Route::get('/supervisor/dashboard', function () {
-        return view('supervisor.dashboard');
-    })->name('supervisor.dashboard');
-
-    Route::get('/supervisor/profile', [ProfileController::class, 'edit'])->name('supervisor.profile.edit');
-    Route::patch('/supervisor/profile', [ProfileController::class, 'update'])->name('supervisor.profile.update');
-});
-
-
-// Manager Routes
-Route::middleware(['auth', 'verified', 'manager'])->group(function () {
-    Route::get('/manager/dashboard', function () {
-        return view('manager.dashboard');
-    })->name('manager.dashboard');
-
-    Route::get('/manager/profile', [ProfileController::class, 'edit'])->name('manager.profile.edit');
-    Route::patch('/manager/profile', [ProfileController::class, 'update'])->name('manager.profile.update');
-});
 
 // Admin Routes
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {

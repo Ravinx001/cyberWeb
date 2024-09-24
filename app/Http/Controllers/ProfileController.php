@@ -18,29 +18,15 @@ class ProfileController extends Controller
     {
         $userRole = $request->user()->role;
 
-        // Worker
+        // User
         if ($userRole == 1) {
-            return view('worker.profile.edit', [
-                'user' => $request->user(),
-            ]);
-        }
-
-        // Supervisor
-        else if ($userRole == 2) {
-            return view('supervisor.profile.edit', [
-                'user' => $request->user(),
-            ]);
-        }
-
-        // Manager
-        else if ($userRole == 3) {
-            return view('manager.profile.edit', [
+            return view('user.profile.edit', [
                 'user' => $request->user(),
             ]);
         }
 
         // Admin
-        else if ($userRole == 4) {
+        else if ($userRole == 2) {
             return view('admin.profile.edit', [
                 'user' => $request->user(),
             ]);

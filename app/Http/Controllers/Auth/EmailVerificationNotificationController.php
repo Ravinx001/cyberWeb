@@ -17,23 +17,13 @@ class EmailVerificationNotificationController extends Controller
             $userRole = $request->user()->role;
             $customRoute = '';
 
-            // Worker
+            // User
             if ($userRole == 1) {
-                $customRoute = 'worker.dashboard';
-            }
-
-            // Supervisor
-            else if ($userRole == 2) {
-                $customRoute = 'supervisor.dashboard';
-            }
-
-            // Manager
-            else if ($userRole == 3) {
-                $customRoute = 'manager.dashboard';
+                $customRoute = 'user.dashboard';
             }
 
             // Admin
-            else if ($userRole == 4) {
+            else if ($userRole == 2) {
                 $customRoute = 'admin.dashboard';
             }
 

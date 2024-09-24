@@ -1,9 +1,9 @@
-<x-manager-app-layout>
+<x-user-app-layout>
     <main>
 
         <div class="container-fluid px-4">
 
-            <h3 class="my-3">Manager Dashboard</h3>
+            <h3 class="my-3">User Dashboard</h3>
 
             <div class="row">
                 <div class="col-xl-3 col-md-6">
@@ -535,4 +535,4 @@
 
         </div>
     </main>
-</x-manager-app-layout>
+</x-user-app-layout>

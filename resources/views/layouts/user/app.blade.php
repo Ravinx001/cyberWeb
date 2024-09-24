@@ -20,17 +20,17 @@
 
 <body class="sb-nav-fixed">
 
-    @include('layouts.supervisor.navigation')
+    @include('layouts.user.navigation')
 
     <div id="layoutSidenav">
 
-        @include('layouts.supervisor.sidebar')
+        @include('layouts.user.sidebar')
 
         <div id="layoutSidenav_content">
 
             {{ $slot }}
 
-            @include('layouts.supervisor.app-footer')
+            @include('layouts.user.app-footer')
 
         </div>
     </div>

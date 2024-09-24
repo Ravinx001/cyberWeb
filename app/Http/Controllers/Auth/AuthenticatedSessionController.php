@@ -31,17 +31,12 @@ class AuthenticatedSessionController extends Controller
         $loggedUserRole = $request->user()->role;
 
         switch ($loggedUserRole) {
+
             case '2':
-                return redirect()->intended(route('supervisor.dashboard', absolute: false));
-
-            case '3':
-                return redirect()->intended(route('manager.dashboard', absolute: false));
-
-            case '1':
                 return redirect()->intended(route('admin.dashboard', absolute: false));
 
             default:
-                return redirect()->intended(route('worker.dashboard', absolute: false));
+                return redirect()->intended(route('user.dashboard', absolute: false));
         }
     }
 

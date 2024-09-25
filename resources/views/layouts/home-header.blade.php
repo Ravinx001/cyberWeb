@@ -17,20 +17,35 @@
                     <li><a href="#comments">Comments</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contact">Contact Us</a></li>
+                @elseif(Route::is('user.quiz'))
+                    <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75"
+                        aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
+                    </div>
+
+                    <li><a href="{{ route('home') }}">Home</a></li>
                 @else
                     <li><a href="{{ route('home') }}">Home</a></li>
                 @endif
 
-                @auth
-                    <li>
-                        <a href="{{ route('user.profile.edit') }}"><button
-                                class="btn-login">{{ Auth::user()->name }}</button></a>
-                    </li>
-                @else
-                    <li>
+                <li class="dropdown">
+                    @auth
+                        <a href="#"><button class="btn-login toggle-dropdown">{{ Auth::user()->name }}</button></a>
+                        <ul>
+                            <li><a href="{{ route('user.profile.edit') }}">Profile</a></li>
+                            <hr>
+                            <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <li><a><button class="text-muted"
+                                            style="border: none; background-color: rgb(255,255,255);">Logout</button></a>
+                                </li>
+                            </form>
+                        </ul>
+                    @else
                         <a href="{{ route('login') }}"><button class="btn-login">Login</button></a>
-                    </li>
-                @endauth
+                    @endauth
+                </li>
 
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

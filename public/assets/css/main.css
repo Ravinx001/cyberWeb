@@ -279,7 +279,7 @@ h6 {
         top: 130%;
         opacity: 0;
         transition: 0.3s;
-        border-radius: 4px;
+        border-radius: 10px;
         z-index: 99;
         box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
     }

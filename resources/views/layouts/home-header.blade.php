@@ -1,7 +1,7 @@
 <header id="header" class="header d-flex align-items-center sticky-top p-3 p-lg-0">
     <div class="container position-relative d-flex align-items-center">
 
-        <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <a href="{{ route('home') }}" class="logo d-flex align-items-center me-auto">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="assets/img/logo.png" alt=""> -->
             <h1 class="sitename">CySec</h1>
@@ -17,13 +17,6 @@
                     <li><a href="#comments">Comments</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contact">Contact Us</a></li>
-                @elseif(Route::is('user.quiz'))
-                    <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75"
-                        aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
-                    </div>
-
-                    <li><a href="{{ route('home') }}">Home</a></li>
                 @else
                     <li><a href="{{ route('home') }}">Home</a></li>
                 @endif

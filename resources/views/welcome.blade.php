@@ -53,7 +53,7 @@
                         <h1>Welcome to Our Website</h1>
                         <p>We are team of talented designers making websites with Bootstrap</p>
                         <div class="d-flex">
-                            <a href="#about" class="btn-get-started">Get Started</a>
+                            <a href="#quiz" class="btn-get-started">Get Started</a>
                         </div>
                     </div>
                     <div class="col-lg-5 order-1 order-lg-2 hero-img">
@@ -79,7 +79,14 @@
                             mollit anim id est laborum.</p>
                     </div>
                     <div class="col-xl-3 cta-btn-container text-center">
-                        <a class="cta-btn align-middle" href="#">Go To Quiz</a>
+                        @auth
+                            <a class="cta-btn align-middle" href="{{ route($quizRoute) }}">{{$text}}</a>
+                        @else
+                            <button style="border: none;" type="button" class="cta-btn align-middle" data-bs-toggle="modal"
+                                data-bs-target="#postadModal">
+                                Go To Quiz
+                            </button>
+                        @endauth
                     </div>
                 </div>
 
@@ -568,6 +575,8 @@
     </main>
 
     @include('layouts.home-footer')
+
+    @include('layouts.modals')
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i

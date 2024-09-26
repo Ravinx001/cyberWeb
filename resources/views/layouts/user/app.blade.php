@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Dashboard</title>
+    <title>CySec</title>
     <!-- FAVICON -->
     <link rel="icon" href="{{ asset('images/checklist.webp') }}">
 
@@ -55,6 +55,8 @@
         </div>
 
     </footer>
+
+    @include('layouts.modals')
 
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>

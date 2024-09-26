@@ -19,7 +19,7 @@ class VerifyEmailController extends Controller
 
         // User
         if ($userRole == 1) {
-            $customRoute = 'user.dashboard';
+            $customRoute = 'home';
         }
 
 

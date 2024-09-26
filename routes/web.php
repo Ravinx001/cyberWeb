@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminDashController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -39,9 +40,12 @@ Route::middleware(['auth', 'user'])->group(function () {
 
 // Admin Routes
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+    // Route::get('/admin/dashboard', function () {
+    //     return view('admin.dashboard');
+    // })->name('admin.dashboard');
+
+    Route::get('/admin/dashboard', [AdminDashController::class, 'index'])
+        ->name('admin.dashboard');
 
     Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('admin.profile.edit');
     Route::patch('/admin/profile', [ProfileController::class, 'update'])->name('admin.profile.update');

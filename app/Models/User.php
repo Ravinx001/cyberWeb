@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -47,9 +48,9 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
-    public function QuizProgress(): HasMany
+    public function questionprogress(): HasOne
     {
-        return $this->hasMany(QuizProgress::class);
+        return $this->hasOne(QuizProgress::class);
     }
 
 }

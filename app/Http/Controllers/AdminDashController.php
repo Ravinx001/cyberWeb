@@ -2,49 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class AdminDashController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $user = Auth::user();
 
-        if ($user != null) {
+        $users = User::with('questionProgress')->where('role', '=', '1')->get();
 
-            $ques = 0;
-
-            $status = DB::table('quiz_progress')
-                ->where('user_id', '=', $user->id)
-                ->latest()
-                ->first();
-
-            try {
-                $ques = $status->questionProgress;
-            } catch (\Throwable $th) {
-                //throw $th;
-            }
-
-            if ($ques >= 10) {
-                $quizRoute = "quiz.delete";
-                $text = "Retake the Quiz";
-
-                return view('welcome', compact('quizRoute', 'text'));
-            } else {
-                $quizRoute = "quiz.create";
-                $text = "Go to Quiz";
-
-                return view('welcome', compact('quizRoute', 'text'));
-            }
-
-        } else {
-            return view('welcome');
-        }
-
+        return view('admin.dashboard', compact('users'));
     }
 
     // /**

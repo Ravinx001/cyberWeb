@@ -28,8 +28,7 @@
                         <div class="card mb-4">
 
                             <div class="card-header text-center">
-                                <h5 class="my-2">Which of the following is a core principle
-                                    of Role-Based Access Control (RBAC) in the EISP ?</h5>
+                                <h5 class="my-2">What is the primary objective of the Acceptable Use Policy (AUP) in the EISP ?</h5>
                             </div>
 
                             <div class="card-body">
@@ -43,7 +42,7 @@
                                             <input class="form-check-input" type="radio" value="1" name="answer"
                                                 id="flexRadioDefault1" {{ old('answer') == '1' ? 'checked' : '' }}>
                                             <label class="form-check-label" for="flexRadioDefault1">
-                                                a) Granting access to everyone based on their job title.
+                                                a) To define company dress code for employees.
                                             </label>
                                         </div>
                                     </div>
@@ -53,7 +52,7 @@
                                             <input class="form-check-input" type="radio" value="2" name="answer"
                                                 id="flexRadioDefault2" {{ old('answer') == '2' ? 'checked' : '' }}>
                                             <label class="form-check-label" for="flexRadioDefault2">
-                                                b) Assigning permissions based on specific job functions.
+                                                b) To outline acceptable and prohibited activities when using company resources.
                                             </label>
                                         </div>
                                     </div>
@@ -63,7 +62,7 @@
                                             <input class="form-check-input" type="radio" value="3" name="answer"
                                                 id="flexRadioDefault3" {{ old('answer') == '3' ? 'checked' : '' }}>
                                             <label class="form-check-label" for="flexRadioDefault3">
-                                                c) Allowing users to request access to any system they need.
+                                                c)  To specify procedures for requesting vacation time.
                                             </label>
                                         </div>
                                     </div>
@@ -73,7 +72,7 @@
                                             <input class="form-check-input" type="radio" value="4" name="answer"
                                                 id="flexRadioDefault4" {{ old('answer') == '4' ? 'checked' : '' }}>
                                             <label class="form-check-label" for="flexRadioDefault4">
-                                                d) Automatically granting access to all company resources.
+                                                d) To assign employee roles and responsibilities.
                                             </label>
                                         </div>
                                     </div>

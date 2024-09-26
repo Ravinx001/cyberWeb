@@ -17,6 +17,18 @@ Route::middleware('guest')->group(function () {
 //     return view('welcome');
 // })->name('home');
 
+Route::get('/article1', function () {
+    return view('article1');
+})->name('article1');
+
+Route::get('/article2', function () {
+    return view('article2');
+})->name('article2');
+
+Route::get('/article3', function () {
+    return view('article3');
+})->name('article3');
+
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 

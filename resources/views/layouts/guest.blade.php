@@ -9,9 +9,9 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Machine Checkups</title>
+    <title>CySec</title>
     <!-- FAVICON -->
-    <link rel="icon" href="{{ asset('images/checklist.webp') }}">
+    <link rel="icon" href="{{ asset('images/logo.webp') }}">
 
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     @vite('resources/js/app.js')

@@ -8,9 +8,8 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- FAVICON -->
+    <link rel="icon" href="{{ asset('images/logo.webp') }}">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -50,8 +49,8 @@
             <div class="container">
                 <div class="row gy-4">
                     <div class="col-lg-7 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                        <h1>Welcome to Our Website</h1>
-                        <p>We are team of talented designers making websites with Bootstrap</p>
+                        <h1 class="mb-2">Welcome to</h1>
+                        <h3>Perfectus Cyber Security Awareness Program</h3><br>
                         <div class="d-flex">
                             <a href="#quiz" class="btn-get-started">Get Started</a>
                         </div>
@@ -73,14 +72,14 @@
 
                 <div class="row" data-aos="zoom-in" data-aos-delay="100">
                     <div class="col-xl-9 text-center text-xl-start">
-                        <h3>Call To Action</h3>
+                        <h3>Go Through the Quiz</h3>
                         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                             mollit anim id est laborum.</p>
                     </div>
                     <div class="col-xl-3 cta-btn-container text-center">
                         @auth
-                            <a class="cta-btn align-middle" href="{{ route($quizRoute) }}">{{$text}}</a>
+                            <a class="cta-btn align-middle" href="{{ route($quizRoute) }}">{{ $text }}</a>
                         @else
                             <button style="border: none;" type="button" class="cta-btn align-middle" data-bs-toggle="modal"
                                 data-bs-target="#postadModal">
@@ -227,7 +226,7 @@
                                 sensitive data.
                             </p>
                             <div class="text-center text-lg-start">
-                                <a href="#"
+                                <a href="{{ route('article1') }}"
                                     class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
                                     <span>Read More</span>
                                     <i class="bi bi-arrow-right"></i>
@@ -258,7 +257,7 @@
                                 can strengthen their security posture and protect sensitive information.
                             </p>
                             <div class="text-center text-lg-start">
-                                <a href="#"
+                                <a href="{{ route('article2') }}"
                                     class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
                                     <span>Read More</span>
                                     <i class="bi bi-arrow-right"></i>
@@ -287,7 +286,7 @@
                                 remote work, and AI integration, protecting data and preventing unauthorized access.
                             </p>
                             <div class="text-center text-lg-start">
-                                <a href="#"
+                                <a href="{{ route('article3') }}"
                                     class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
                                     <span>Read More</span>
                                     <i class="bi bi-arrow-right"></i>
@@ -530,8 +529,9 @@
                                 <div class="info-item" data-aos="fade" data-aos-delay="200">
                                     <i class="bi bi-geo-alt"></i>
                                     <h3>Address</h3>
-                                    <p>A108 Adam Street</p>
-                                    <p>New York, NY 535022</p>
+                                    <p>47/1, Jawatte Road,</p>
+                                    <p>Colombo 05,</p>
+                                    <p>Sri Lanka</p>
                                 </div>
                             </div><!-- End Info Item -->
 
@@ -539,8 +539,7 @@
                                 <div class="info-item" data-aos="fade" data-aos-delay="300">
                                     <i class="bi bi-telephone"></i>
                                     <h3>Call Us</h3>
-                                    <p>+1 5589 55488 55</p>
-                                    <p>+1 6678 254445 41</p>
+                                    <p>+9477-073-5604</p><br><br>
                                 </div>
                             </div><!-- End Info Item -->
 
@@ -548,8 +547,7 @@
                                 <div class="info-item" data-aos="fade" data-aos-delay="400">
                                     <i class="bi bi-envelope"></i>
                                     <h3>Email Us</h3>
-                                    <p>info@example.com</p>
-                                    <p>contact@example.com</p>
+                                    <p>info@perfectustec.com</p><br>
                                 </div>
                             </div><!-- End Info Item -->
 

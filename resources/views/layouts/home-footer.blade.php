@@ -7,14 +7,14 @@
 
                 <div class="d-flex flex-column align-items-center align-items-lg-start">
                     <div>
-                        © Copyright <strong><span>MyWebsite</span></strong>. All Rights Reserved
+                        © Copyright <strong><span>Cysec</span></strong>. All Rights Reserved
                     </div>
                     <div class="credits">
                         <!-- All the links in the footer should remain intact. -->
                         <!-- You can delete the links only if you purchased the pro version. -->
                         <!-- Licensing information: https://bootstrapmade.com/license/ -->
                         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
-                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                        Designed by <a href="{{ route('home') }}">CySec</a>
                     </div>
                 </div>
 
@@ -37,14 +37,14 @@
 
                 <div class="d-flex flex-column align-items-center">
                     <div>
-                        © Copyright <strong><span>MyWebsite</span></strong>. All Rights Reserved
+                        © Copyright <strong><span>CySec</span></strong>. All Rights Reserved
                     </div>
                     <div class="credits">
                         <!-- All the links in the footer should remain intact. -->
                         <!-- You can delete the links only if you purchased the pro version. -->
                         <!-- Licensing information: https://bootstrapmade.com/license/ -->
                         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
-                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                        Designed by <a href="{{ route('home') }}">CySec</a>
                     </div>
                 </div>
 

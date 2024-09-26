@@ -27,8 +27,7 @@
                         <div class="card mb-4">
 
                             <div class="card-header text-center">
-                                <h5 class="my-2">Which of the following is a core principle
-                                    of Role-Based Access Control (RBAC) in the EISP ?</h5>
+                                <h5 class="my-2">Which of the following is a core principle of Role-Based Access Control (RBAC) in the EISP ?</h5>
                             </div>
 
                             <div class="card-body">

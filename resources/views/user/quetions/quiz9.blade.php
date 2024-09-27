@@ -14,7 +14,7 @@
 
         <div>
             <center>
-                <h3 class="mt-5">Quetion 9</h3>
+                <h3 class="mt-5">Question 9</h3>
             </center>
             <br>
             <br>

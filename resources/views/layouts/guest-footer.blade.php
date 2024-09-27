@@ -2,7 +2,7 @@
     <footer class="py-4 bg-light mt-auto">
         <div class="container-fluid px-4">
             <div class="d-flex align-items-center justify-content-between small">
-                <div style="color: rgb(0,156,234);">Copyright &copy; Your Website 2023</div>
+                <div style="color: rgb(0,156,234);">Copyright &copy; CySec 2023</div>
                 <div>
                     <a href="#">Privacy Policy</a>
                     &middot;

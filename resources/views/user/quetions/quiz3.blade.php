@@ -96,4 +96,57 @@
         </div>
     </main>
 
+    <!-- Answer Review Modal -->
+    @if(isset($is_correct) && !$is_correct)
+        <div class="modal fade show" id="answerModal" tabindex="-1" style="display: block; background: rgba(0,0,0,0.8);" 
+             aria-labelledby="answerModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: #1a1a1a; border: 1px solid #333;">
+                    <div class="modal-header" style="border-bottom: 1px solid #333;">
+                        <h5 class="modal-title" id="answerModalLabel" style="color: #f5a60b;">
+                            ❌ Incorrect Answer
+                        </h5>
+                    </div>
+                    <div class="modal-body" style="color: #ffffff;">
+                        <p><strong>Your Answer:</strong> 
+                            <span style="color: #ff6b6b;">Option {{ $user_answer }}</span>
+                        </p>
+                        <p><strong>Correct Answer:</strong> 
+                            <span style="color: #51cf66;">Option {{ $correct_answer }}</span>
+                        </p>
+                        <p style="color: #cccccc; font-size: 0.9rem; margin-top: 15px;">
+                            Don't worry! You can continue with the next question and retake the quiz later to improve your score.
+                        </p>
+                    </div>
+                    <div class="modal-footer" style="border-top: 1px solid #333;">
+                        <button type="button" class="btn" style="background-color: #0bf5ea; color: #000000;" 
+                                data-bs-dismiss="modal" onclick="hideModal()">
+                            Continue to Next Question
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function hideModal() {
+                document.getElementById('answerModal').style.display = 'none';
+            }
+        </script>
+    @endif
+
+    @if(isset($is_correct) && $is_correct)
+        <script>
+            // Show a brief success indicator for correct answers
+            window.onload = function() {
+                const successDiv = document.createElement('div');
+                successDiv.innerHTML = '<div class="alert alert-success" style="position: fixed; top: 20px; right: 20px; z-index: 1000; background-color: #1a5f1a; border-color: #51cf66; color: #51cf66;">✅ Correct Answer!</div>';
+                document.body.appendChild(successDiv);
+                setTimeout(() => {
+                    successDiv.remove();
+                }, 2000);
+            }
+        </script>
+    @endif
+
 </x-user-app-layout>

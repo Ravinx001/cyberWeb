@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreQuizProgressRequest;
 use App\Http\Requests\UpdateQuizProgressRequest;
 use App\Models\QuizProgress;
+use App\Models\Questions;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\MessageBag;
@@ -37,8 +38,16 @@ class QuizProgressController extends Controller
         } else if ($ques < 10) {
 
             $nextQues = $ques + 1;
-
             $view = "user.quetions.quiz{$nextQues}";
+
+            // Check if user already answered the next question to prevent re-answering
+            $quizProgress = QuizProgress::where('user_id', $user->id)->latest()->first();
+            $answeredQuestions = $quizProgress ? ($quizProgress->answered_questions ?? []) : [];
+
+            // If next question was already answered, redirect to home (shouldn't happen in normal flow)
+            if (isset($answeredQuestions[$nextQues])) {
+                return redirect(route('home'))->with('info', 'You have already completed this quiz!');
+            }
 
             return view($view);
         } else {
@@ -55,67 +64,72 @@ class QuizProgressController extends Controller
         $answer = $request->answer;
         $user = Auth::user();
 
-        $QuesStatus = DB::table('questions')
-            ->where('question', '=', $question)
-            ->where('answer', '=', $answer)
-            ->count();
+        // Get the correct answer for this question
+        $correctAnswerRecord = Questions::where('question', $question)->first();
+        $correctAnswer = $correctAnswerRecord ? $correctAnswerRecord->answer : null;
+        $isCorrect = $correctAnswerRecord && $correctAnswerRecord->answer == $answer;
 
-        $ques = 0;
+        // Get or create quiz progress record
+        $quizProgress = QuizProgress::where('user_id', $user->id)->latest()->first();
 
-        $status = DB::table('quiz_progress')
-            ->where('user_id', '=', $user->id)
-            ->latest()
-            ->first();
-
-        try {
-            $ques = $status->questionProgress;
-        } catch (\Throwable $th) {
-            //throw $th;
-        }
-
-        $userId = $user->id;
-
-        if ($QuesStatus > 0 && $ques == 0) {
-            $quiz = QuizProgress::create([
-                'user_id' => $userId,
-                'questionProgress' => $question,
-            ]);
-
-            $nextQuestion = $question + 1;
-
-            $view = "user.quetions.quiz{$nextQuestion}";
-
-            return view($view);
-
-        } else if ($QuesStatus > 0 && $ques >= 1 && $ques < 9) {
-
-            DB::table('quiz_progress')
-                ->where('user_id', $userId)
-                ->update(['questionProgress' => $question]);
-
-            $nextQuestion = $question + 1;
-
-            $view = "user.quetions.quiz{$nextQuestion}";
-
-            return view($view);
-
-        } else if ($ques >= 9) {
-
-            DB::table('quiz_progress')
-                ->where('user_id', $userId)
-                ->update(['questionProgress' => $question]);
-
-            return redirect(route('home'))->with('success', 'You Completed the Quiz !');
-
+        if (!$quizProgress) {
+            // First question
+            $answeredQuestions = [];
+            $correctAnswersCount = 0;
         } else {
-            $errors = new MessageBag();
-
-            // Add your custom validation error.
-            $errors->add('answer', 'Incorrect Answer !');
-
-            return redirect()->back()->withInput()->withErrors($errors);
+            $answeredQuestions = $quizProgress->answered_questions ?? [];
+            $correctAnswersCount = $quizProgress->correct_answers ?? 0;
         }
 
+        // Update answered questions tracking
+        $answeredQuestions[$question] = [
+            'user_answer' => $answer,
+            'correct_answer' => $correctAnswer,
+            'is_correct' => $isCorrect,
+            'answered_at' => now()->toISOString()
+        ];
+
+        // Update correct answers count
+        if ($isCorrect) {
+            $correctAnswersCount++;
+        }
+
+        // Update or create quiz progress
+        if (!$quizProgress) {
+            $quizProgress = QuizProgress::create([
+                'user_id' => $user->id,
+                'questionProgress' => $question,
+                'correct_answers' => $correctAnswersCount,
+                'answered_questions' => $answeredQuestions,
+            ]);
+        } else {
+            $quizProgress->update([
+                'questionProgress' => $question,
+                'correct_answers' => $correctAnswersCount,
+                'answered_questions' => $answeredQuestions,
+            ]);
+        }
+
+        // Prepare response data for the view
+        $responseData = [
+            'is_correct' => $isCorrect,
+            'user_answer' => $answer,
+            'correct_answer' => $correctAnswer,
+            'question_number' => $question,
+            'total_questions' => 10
+        ];
+
+        if ($question >= 10) {
+            // Quiz completed
+            $responseData['quiz_completed'] = true;
+            $responseData['total_correct'] = $correctAnswersCount;
+            return view('user.quiz-result', $responseData);
+        } else {
+            // Continue to next question
+            $nextQuestion = $question + 1;
+            $view = "user.quetions.quiz{$nextQuestion}";
+            return view($view, $responseData);
+        }
     }
 
     // /**

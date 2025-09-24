@@ -73,9 +73,40 @@
                 <div class="row" data-aos="zoom-in" data-aos-delay="100">
                     <div class="col-xl-9 text-center text-xl-start">
                         <h3>Go Through the Quiz</h3>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.</p>
+
+                        @auth
+                            @isset($quizStatus)
+                                @if($quizStatus == 'completed_perfect')
+                                    <div class="alert alert-success mt-3" style="background-color: rgba(40, 167, 69, 0.1); border-color: #28a745; color: #28a745;">
+                                        <strong>🎉 Quiz Completed!</strong><br>
+                                        {{ $quizMessage }}
+                                        <br><strong>Score: {{ $correctAnswers }}/{{ $totalQuestions }}</strong>
+                                    </div>
+                                @elseif($quizStatus == 'completed_imperfect')
+                                    <div class="alert alert-warning mt-3" style="background-color: rgba(255, 193, 7, 0.1); border-color: #ffc107; color: #856404;">
+                                        <strong>⚠️ Quiz Completed</strong><br>
+                                        {{ $quizMessage }}
+                                        <br><strong>Score: {{ $correctAnswers }}/{{ $totalQuestions }}</strong>
+                                    </div>
+                                @elseif($quizStatus == 'in_progress')
+                                    <div class="alert alert-info mt-3" style="background-color: rgba(23, 162, 184, 0.1); border-color: #17a2b8; color: #0c5460;">
+                                        <strong>📝 Quiz In Progress</strong><br>
+                                        {{ $quizMessage }}
+                                        @if($correctAnswers > 0)
+                                            <br><strong>Current Score: {{ $correctAnswers }}/{{ $totalQuestions }}</strong>
+                                        @endif
+                                    </div>
+                                @else
+                                    <p>{{ $quizMessage ?? 'Test your cybersecurity knowledge with our interactive quiz!' }}</p>
+                                @endif
+                            @else
+                                <p>Test your cybersecurity knowledge with our interactive quiz! Learn about security principles, best practices, and common threats.</p>
+                            @endisset
+                        @else
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.</p>
+                        @endauth
                     </div>
                     <div class="col-xl-3 cta-btn-container text-center">
                         @auth

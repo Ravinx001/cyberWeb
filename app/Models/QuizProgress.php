@@ -13,7 +13,13 @@ class QuizProgress extends Model
     protected $fillable = [
         'user_id',
         'questionProgress',
+        'correct_answers',
+        'answered_questions',
         'status',
+    ];
+
+    protected $casts = [
+        'answered_questions' => 'array',
     ];
 
     public function user(): HasOne

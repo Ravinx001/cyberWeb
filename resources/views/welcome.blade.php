@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>CySec</title>
+    <title>Guard X</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
@@ -425,7 +425,6 @@
 
         </section>
         <!-- /Comments Section -->
-
 
         <!-- Faq Section -->
         <section id="faq" class="faq section light-background">

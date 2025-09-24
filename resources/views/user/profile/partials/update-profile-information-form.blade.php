@@ -2,10 +2,10 @@
             <div class="row">
                 <div class="col-12">
 
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <h5 class="text-start font-weight-light my-2">Profile Information</h5>
-                            <span style="color: rgb(0,156,234);">Update your account's profile information and email
+                    <div class="card mb-4" style="background-color: #1a1a1a; border: 1px solid #333;">
+                        <div class="card-header" style="background-color: #1a1a1a; border-bottom: 1px solid #333;">
+                            <h5 class="text-start font-weight-light my-2" style="color: #0bf5ea;">Profile Information</h5>
+                            <span style="color: #ffffff;">Update your account's profile information and email
                                 address.</span>
 
                             <form id="send-verification" method="post" action="{{ route('verification.send') }}">
@@ -13,7 +13,7 @@
                             </form>
                         </div>
 
-                        <div class="card-body">
+                        <div class="card-body" style="background-color: #1a1a1a; color: #ffffff;">
 
                             <form method="post" action="{{ route('user.profile.update') }}">
                                 @csrf
@@ -31,7 +31,7 @@
                                         </span>
 
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <button form="send-verification" class="btn btn-primary">Click here to
+                                            <button form="send-verification" class="btn" style="background-color: #0bf5ea; color: #000000; border: none;">Click here to
                                                 re-send the verification email.</button>
                                         </div>
                                         </p>
@@ -45,15 +45,15 @@
                                 @endif
 
                                 <div class="form-floating mb-3">
-                                    <x-form.input-required name="name" type="text" :value="old('name', $user->name)" />
+                                    <x-form.input-required name="name" type="text" :value="old('name', $user->name)" style="background-color: #2a2a2a; color: #ffffff; border: 1px solid #555;" />
                                 </div>
 
                                 <div class="form-floating mb-3">
-                                    <x-form.input-required name="email" type="email" :value="old('email', $user->email)" />
+                                    <x-form.input-required name="email" type="email" :value="old('email', $user->email)" style="background-color: #2a2a2a; color: #ffffff; border: 1px solid #555;" />
                                 </div>
 
                                 <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                    <button style="background-color: rgb(0,156,234);" class="btn text-white" type="submit">Save</button>
+                                    <button style="background-color: #0bf5ea; color: #000000; border: none;" class="btn" type="submit">Save</button>
                                 </div>
 
                             </form>

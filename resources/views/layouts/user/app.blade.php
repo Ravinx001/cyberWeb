@@ -27,27 +27,27 @@
 
 </head>
 
-<body class="sb-nav-fixed">
+<body class="sb-nav-fixed" style="background-color: #000000; color: #ffffff;">
 
     @include('layouts.home-header')
 
     {{ $slot }}
 
-    <footer id="footer" class="footer light-background">
+    <footer id="footer" class="footer" style="background-color: #1a1a1a;">
 
         <div class="copyright text-center">
             <div class="container d-flex flex-column flex-lg-row justify-content-center align-items-center">
 
                 <div class="d-flex flex-column align-items-center">
-                    <div>
-                        © Copyright <strong><span>MyWebsite</span></strong>. All Rights Reserved
+                    <div style="color: #ffffff;">
+                        © Copyright <strong><span style="color: #0bf5ea;">CySec</span></strong>. All Rights Reserved
                     </div>
                     <div class="credits">
                         <!-- All the links in the footer should remain intact. -->
                         <!-- You can delete the links only if you purchased the pro version. -->
                         <!-- Licensing information: https://bootstrapmade.com/license/ -->
                         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
-                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                        Designed by <a href="#" style="color: #0bf5ea;">CySec</a>
                     </div>
                 </div>
 

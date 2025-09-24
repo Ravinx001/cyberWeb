@@ -17,14 +17,14 @@
     @vite('resources/js/app.js')
 </head>
 
-<body style="background-color: rgb(0,156,234);">
+<body style="background-color: #000000; color: #ffffff;">
 
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
 
-            <nav class="navbar navbar-expand navbar-light bg-light">
+            <nav class="navbar navbar-expand navbar-dark" style="background-color: #1a1a1a;">
                 <!-- Navbar Brand-->
-                <a style="color: rgb(0,156,234);" class="navbar-brand mx-auto fs-4 fw-bold" href="/">CySec</a>
+                <a style="color: #0bf5ea;" class="navbar-brand mx-auto fs-4 fw-bold" href="/">CySec</a>
             </nav>
 
             {{ $slot }}

@@ -77,19 +77,19 @@
                         @auth
                             @isset($quizStatus)
                                 @if($quizStatus == 'completed_perfect')
-                                    <div class="alert alert-success mt-3" style="background-color: rgba(40, 167, 69, 0.1); border-color: #28a745; color: #28a745;">
+                                    <div class="alert alert-success mt-3 text-white" style="background-color: rgba(40, 167, 70, 0.455); border-color: #28a745; color: #28a745;">
                                         <strong>🎉 Quiz Completed!</strong><br>
                                         {{ $quizMessage }}
                                         <br><strong>Score: {{ $correctAnswers }}/{{ $totalQuestions }}</strong>
                                     </div>
                                 @elseif($quizStatus == 'completed_imperfect')
-                                    <div class="alert alert-warning mt-3" style="background-color: rgba(255, 193, 7, 0.1); border-color: #ffc107; color: #856404;">
+                                    <div class="alert alert-warning mt-3 text-white" style="background-color: rgba(255, 193, 7, 0.405); border-color: #ffc107; color: #856404;">
                                         <strong>⚠️ Quiz Completed</strong><br>
                                         {{ $quizMessage }}
                                         <br><strong>Score: {{ $correctAnswers }}/{{ $totalQuestions }}</strong>
                                     </div>
                                 @elseif($quizStatus == 'in_progress')
-                                    <div class="alert alert-info mt-3" style="background-color: rgba(23, 162, 184, 0.1); border-color: #17a2b8; color: #0c5460;">
+                                    <div class="alert alert-info mt-3 text-white" style="background-color: rgba(23, 163, 184, 0.4); border-color: #17a2b8; color: #0c5460;">
                                         <strong>📝 Quiz In Progress</strong><br>
                                         {{ $quizMessage }}
                                         @if($correctAnswers > 0)

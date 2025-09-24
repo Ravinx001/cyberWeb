@@ -1,13 +1,13 @@
 <x-user-app-layout>
 
-    <main class="container pt-5 pb-5 mb-5">
+    <main class="container pt-5 pb-5 mb-5" style="background-color: #000000; color: white;"
 
         <div class="row">
             <div class="col">
                 <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75"
                     aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info text-dark"
-                        style="width: 70%">70% Completed</div>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated text-dark"
+                        style="width: 70%; background-color: #0bf5ea;">70% Completed</div>
                 </div>
             </div>
         </div>
@@ -24,19 +24,19 @@
                 <div class="row">
                     <div class="col-12">
 
-                        <div class="card mb-4">
+                        <div class="card mb-4" style="background-color: #1a1a1a; border-color: #333;">
 
-                            <div class="card-header text-center">
+                            <div class="card-header text-center" style="background-color: #2a2a2a; border-bottom-color: #333; color: white;">
                                 <h5 class="my-2">Which of the following is NOT a requirement for BYOD devices
                                     according to the SYSSP ?</h5>
                             </div>
 
-                            <div class="card-body">
+                            <div class="card-body" style="background-color: #1a1a1a; color: white;">
                                 @csrf
 
                                 <input type="hidden" name="question" value="8">
 
-                                <div class="row fs-5 text-muted">
+                                <div class="row fs-5" style="color: #999;">
                                     <div class="col-9 offset-3 d-flex justify-content-start">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" value="1" name="answer"
@@ -87,7 +87,7 @@
 
                 <center>
                     <div class="mt-5">
-                        <button style="background-color: rgb(0,156,234);" class="btn text-white"
+                        <button style="background-color: #0bf5ea; color: #000000;" class="btn text-white"
                             type="submit">Next</button>
                     </div>
                 </center>
